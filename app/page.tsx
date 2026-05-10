@@ -1,65 +1,48 @@
-import Image from "next/image";
+import '../src/tcss/style.css'; 
+import HistorySection from '../src/components/HistorySection';
+import FamilyTree from '../src/components/FamilyTree';
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    // 🗺️ 1. 外層大底板：保留全域的泛黃藍圖背景和焦邊效果
+    <main className="relative w-full bg-vintage-blueprint burnt-edges overflow-hidden">
+      
+      {/* 🎬 2. 第一區塊：霸氣滿版的 Hero Section */}
+      {/* min-h-screen 強制這個區塊一定要佔滿一整個螢幕的高度！ */}
+      <section className="relative w-full min-h-screen flex flex-col items-center justify-center p-6 sm:p-12 z-10">
+        
+        {/* 文字內容區 */}
+        {/* mt-[-10vh] 是一個視覺小技巧：把文字稍微往上提一點，視覺重心會更好看 */}
+        <div className="text-center flex flex-col items-center gap-6 mt-[-10vh]">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider drop-shadow-md">
+            <span className="text-[#3E2723]">杜氏柏英分支</span>
+            <span className="text-[#B7791F]">家族數位典藏</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          
+          <h2 className="text-lg sm:text-2xl text-[#5D4037] font-medium tracking-widest bg-[#E8DAB2]/70 px-4 py-2 rounded backdrop-blur-sm mt-4">
+            水尾許，八斗仔杜，三貂吳，跨越兩世紀的煤礦傳奇。
+          </h2>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* 👇 往下引導的跳動箭頭 */}
+        {/* absolute bottom-12 把它死死地釘在螢幕正下方，不受上面文字多寡影響 */}
+        <div className="absolute bottom-12 flex flex-col items-center gap-2 text-[#5D4037]">
+          <span className="text-sm tracking-widest uppercase opacity-70">探索族史</span>
+          <div className="w-6 h-6 border-b-2 border-r-2 border-[#5D4037] transform rotate-45 animate-bounce"></div>
         </div>
-      </main>
-    </div>
+        
+      </section>
+
+      {/* 📜 3. 第二區塊：歷史時間軸與卡片 (History Section) */}
+      {/* 因為上面的 section 已經把第一個螢幕填滿了，所以這裡自動會被推到「畫面外」，必須往下滑才看得到！ */}
+      <div className="relative z-10 w-full pb-20">
+        <HistorySection />
+      </div>
+      {/* 第三部分：家族樹 👈 加在這裡！ */}
+      <div className="relative z-10 w-full pb-20">
+        <FamilyTree />
+      </div>
+    </main>
   );
 }
