@@ -1,4 +1,5 @@
 // app/api/route.ts
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import driver from '../../src/lib/neo4j'; // 確保路徑正確
 
