@@ -16,7 +16,7 @@ export default function Home() {
         {/* mt-[-10vh] 是一個視覺小技巧：把文字稍微往上提一點，視覺重心會更好看 */}
         <div className="text-center flex flex-col items-center gap-6 mt-[-10vh]">
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider drop-shadow-md">
-            <span className="text-[#3E2723]">杜氏柏英分支</span>
+            <span className="text-[#3E2723]">杜氏伯英分支</span>
             <span className="text-[#B7791F]">家族數位典藏</span>
           </h1>
           
